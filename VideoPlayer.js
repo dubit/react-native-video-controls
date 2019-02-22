@@ -91,6 +91,7 @@ export default class VideoPlayer extends Component {
             onLoad: this._onLoad.bind( this ),
             onPause: this.props.onPause,
             onPlay: this.props.onPlay,
+            onUIStateChange: this.props.onUIStateChange,
         };
 
         /**
@@ -404,6 +405,10 @@ export default class VideoPlayer extends Component {
     _toggleControls() {
         let state = this.state;
         state.showControls = ! state.showControls;
+
+        if (typeof this.events.onUIStateChange === 'function') {
+            this.events.onUIStateChange(state.showControls);
+        }
 
         if ( state.showControls ) {
             this.showControlAnimation();
