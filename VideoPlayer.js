@@ -392,6 +392,9 @@ export default class VideoPlayer extends Component {
         if(this.mounted) {
             let state = this.state;
             state.showControls = false;
+            if (typeof this.events.onUIStateChange === 'function') {
+                this.events.onUIStateChange(false);
+            }
             this.hideControlAnimation();
 
             this.setState( state );
