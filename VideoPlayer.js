@@ -92,6 +92,7 @@ export default class VideoPlayer extends Component {
             onPause: this.props.onPause,
             onPlay: this.props.onPlay,
             onUIStateChange: this.props.onUIStateChange,
+            onRenderHandle: this.props.onRenderHandle,
         };
 
         /**
@@ -987,6 +988,8 @@ export default class VideoPlayer extends Component {
      * Render the seekbar and attach its handlers
      */
     renderSeekbar() {
+        
+        const handle = this.props.onRenderHandle ? this.props.onRenderHandle() : null;
 
         return (
             <View style={ styles.seekbar.container }>
@@ -1012,7 +1015,9 @@ export default class VideoPlayer extends Component {
                     <View style={[
                         styles.seekbar.circle,
                         { backgroundColor: this.props.seekColor || '#FFF' } ]}
-                    />
+                    >
+                        {handle}
+                    </View>
                 </View>
             </View>
         );
