@@ -1325,14 +1325,16 @@ const styles = {
             alignSelf: 'stretch',
             height: 28,
             marginLeft: 20,
-            marginRight: 20
+            marginRight: 20,
+            overflow: 'visible',
         },
         track: {
             backgroundColor: '#333',
             height: 1,
             position: 'relative',
             top: 14,
-            width: '100%'
+            width: '100%',
+            overflow: 'visible',
         },
         fill: {
             backgroundColor: '#FFF',
@@ -1344,6 +1346,7 @@ const styles = {
             marginLeft: -7,
             height: 28,
             width: 28,
+            overflow: 'visible',
         },
         circle: {
             borderRadius: 12,
@@ -1351,6 +1354,7 @@ const styles = {
             top: 8, left: 8,
             height: 12,
             width: 12,
+            overflow: 'visible',
         },
     })
 };
